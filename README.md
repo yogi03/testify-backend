@@ -1,119 +1,137 @@
-# TESTIFY - Full-Stack AI Learning Platform
+# 🎓 TESTIFY - The Ultimate AI Learning Platform
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Website-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://testifyproject.vercel.app)
+<div align="center">
+  <img src="public/logo.png" alt="TESTIFY Hero Banner" width="200" />
 
-TESTIFY is an intelligent, full-stack AI-driven educational platform designed to turn your static study materials (PDFs and webpages) into personalized, interactive assessments and visual mind maps. It tracks your learning progress, understands topic-specific preparation levels, and adapts to your knowledge gaps using advanced Retrieval-Augmented Generation (RAG).
+  <br />
+  <br />
 
-**Live Website Endpoint:** [https://testifyproject.vercel.app](https://testifyproject.vercel.app)
+  [![Live Demo](https://img.shields.io/badge/Live_Demo-Website-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://testifyproject.vercel.app)
+  [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)]()
+  [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)]()
+  [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)]()
+  
+  <p align="center">
+    <b>Transform your static study materials into interactive, AI-driven assessments and mind maps.</b>
+  </p>
+</div>
 
 ---
 
-## 📸 Screenshots
+## 🌟 Overview
 
-Here is a glimpse of the TESTIFY platform in action:
+**TESTIFY** is a full-stack, AI-powered educational platform designed to supercharge your learning process. By uploading PDFs or providing webpage URLs, TESTIFY uses advanced **Retrieval-Augmented Generation (RAG)** and **Large Language Models (LLMs)** to ingest your study material, extract core topics, and generate personalized mock tests and visual mind maps.
+
+It actively tracks your progress, identifies your weak points, and adapts to ensure you master the material.
+
+🔗 **Live Website:** [https://testifyproject.vercel.app](https://testifyproject.vercel.app)
+🔗 **GitHub Repository for Frontend:** [https://github.com/yogi03/testify-frontend](https://github.com/yogi03/testify-frontend)
+
+---
+
+## 📸 Platform Sneak Peek
 
 <table align="center">
   <tr>
-    <td><img src="public/1.png" alt="Testify Screenshot 1" width="400" /></td>
-    <td><img src="public/2.png" alt="Testify Screenshot 2" width="400" /></td>
+    <td><img src="public/1.png" alt="Dashboard" /></td>
+    <td><img src="public/2.png" alt="Topic Extraction" /></td>
   </tr>
   <tr>
-    <td><img src="public/3.png" alt="Testify Screenshot 3" width="400" /></td>
-    <td><img src="public/4.png" alt="Testify Screenshot 4" width="400" /></td>
+    <td><img src="public/3.png" alt="Test Generation" /></td>
+    <td><img src="public/4.png" alt="Taking the Test" /></td>
   </tr>
   <tr>
-    <td><img src="public/5.png" alt="Testify Screenshot 5" width="400" /></td>
-    <td><img src="public/6.png" alt="Testify Screenshot 6" width="400" /></td>
+    <td><img src="public/5.png" alt="Test Results & Analytics" /></td>
+    <td><img src="public/6.png" alt="Mind Map Visualization" /></td>
   </tr>
 </table>
 
 ---
 
-## ✨ Features and Benefits
+## ✨ Features & Benefits
 
-### Core Features
-- **Upload & Ingest content:** Easily upload PDF documents or provide article/webpage URLs to act as your study material base.
-- **Smart Topic Extraction:** The AI automatically scans your uploaded materials and breaks them down into structured topic outlines and subtopics.
-- **Customizable Tests:** Generate targeted tests by selecting specific topics, adjusting the number of questions, setting the difficulty (Easy, Medium, Hard), and choosing question formats (Multiple Choice, True/False, Short Answer, Long Answer).
-- **Interactive Mind Maps:** Convert textual study material into visual diagrams/mind maps for rapid review and spatial understanding.
-- **Advanced Dashboard & Analytics:** Track your test scores dynamically with Plotly line graphs. The platform keeps track of which topics you are well-prepared for, measures your accuracy, and logs all your tests and uploaded documents.
-- **Complete History Management:** View, manage, or delete past test attempts and uploaded materials effortlessly.
+### 🔥 For the Learner
+* **Automated Topic Extraction:** No more reading endless pages. The AI scans your document and breaks it down into bite-sized, digestible topics and subtopics.
+* **Custom Practice Tests:** Generate assessments tailored exactly to what you need. Choose the difficulty (Easy, Medium, Hard), number of questions, and format (MCQ, True/False, Short/Long Answer).
+* **Interactive Mind Maps:** Visual learner? TESTIFY converts your uploaded text into interactive, visual node-diagrams to help you understand complex relationships effortlessly.
+* **Smart Progress Tracking:** A comprehensive analytics dashboard tracks your scores, preparation levels, and topic-by-topic accuracy using dynamic charts.
 
-### User Benefits
-- **Targeted Learning:** Instead of rereading lengthy texts, users can actively test their knowledge on specific subsections.
-- **Visualization:** Generate mind maps of complex texts to quickly grasp the overarching structure.
-- **Progress Visibility:** See quantifiable growth via the analytics dashboard and understand exactly which topics require more revision.
-- **Privacy & Security:** Secure, cloud-based Google Authentication ensures users' study data remains private.
-
----
-
-## 🛠️ Tech Stack & Architecture
-
-TESTIFY is separated into a cohesive **Frontend** and **Backend**, connected via RESTful API endpoints.
-
-### Frontend
-- **Framework:** React + Vite + TypeScript (Lightning-fast rendering and build times)
-- **Styling:** Tailwind CSS (Modern, premium dynamic UI with glassmorphism and smooth animations)
-- **State Management & Fetching:** TanStack React Query (For declarative API data fetching and caching)
-- **Authentication:** Firebase Auth (Google Sign-In integration)
-- **Icons & Charts:** Lucide-React & React-Plotly.js
-- **Hosting:** Vercel
-
-### Backend
-- **Framework:** FastAPI / Python (High performance asynchronous Python backend framework)
-- **AI & LLM Integration:** LangChain framework querying Groq LLM for blazing-fast inference and context generation.
-- **Embeddings & Vector Store:** HuggingFace `sentence-transformers` coupled with Qdrant vector database to store and retrieve document chunks.
-- **Database:** Firebase Admin (Firestore) for persisting users, documents, tests, attempts, and analytics metadata.
-- **Document Parsers:** PyPDF (for PDF extraction) and BeautifulSoup4 (for web scraping URLs).
-- **Hosting:** Azure App Services
+### ⚙️ Under the Hood (How it Works)
+1. **Content Ingestion:** PDFs are parsed via `PyPDF`, and URLs are scraped using `BeautifulSoup4`.
+2. **Chunking & Embedding:** The text is split into semantic chunks and embedded into high-dimensional vectors using `HuggingFace sentence-transformers`.
+3. **Vector Storage:** Embeddings are securely stored in a **Qdrant** Vector Database for lightning-fast semantic retrieval.
+4. **RAG Pipeline:** When you request a test or mind map, the backend queries Qdrant for the most relevant context and feeds it to the **Groq LLM** via **LangChain**.
+5. **Generative Output:** The LLM meticulously crafts questions, evaluates answers, or generates Mermaid.js mind map syntax—all grounded purely in your uploaded material (zero hallucinations).
 
 ---
 
-## 🧠 How It Works (The RAG Pipeline)
+## 🛠️ Tech Stack Architecture
 
-1. **Ingestion & Parsing:** When a user uploads a PDF or provides a URL, the FastAPI backend downloads and scrapes the textual content, breaking it down into appropriately sized text chunks.
-2. **Embedding:** These chunks are converted into numerical vectors (Embeddings) via HuggingFace models and stored inside the Qdrant DB.
-3. **Topic Modeling:** The system queries the LLM to analyze the entire document and extract a structured "Topic Outline".
-4. **Test & Mindmap Generation:** When a user requests a test or mind map for certain topics, the backend uses **Retrieval-Augmented Generation (RAG)** to perform a semantic search against the Vector DB. The most relevant text chunks are pulled and fed as contextual prompt material to the Groq LLM, which meticulously authors the test questions or mind map structure out of the retrieved context.
-5. **Evaluating Responses:** Test submissions are graded dynamically by the AI to ensure precision in tracking short/long/MCQ answers, storing the scored results directly into Firestore.
-6. **Analytics Computation:** The backend dynamically calculates the moving average, accuracy spread, and preparation level status by joining document outlines with user attempts.
+TESTIFY is built with modern, scalable, and high-performance technologies, decoupled into a distinct Frontend and Backend.
+
+### 💻 Frontend (Client-Side)
+* **Framework:** React + Vite + TypeScript
+* **Styling & UI:** Tailwind CSS (Premium glassmorphism, responsive design, fluid animations)
+* **State Management & Data Fetching:** TanStack React Query
+* **Authentication:** Firebase Auth (Google OAuth)
+* **Data Visualization:** React-Plotly.js (Score progression) & Mermaid.js (Mind maps)
+* **Hosting:** Vercel
+
+### 🗄️ Backend (Server-Side)
+* **Framework:** FastAPI (High-performance async Python framework)
+* **AI & Orchestration:** LangChain
+* **LLM Provider:** Groq (Ultra-low latency inference)
+* **Embeddings:** HuggingFace `sentence-transformers`
+* **Vector Database:** Qdrant
+* **Primary Database:** Firebase Firestore (NoSQL database for user profiles, analytics, and document metadata)
+* **Hosting:** Azure App Services
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Getting Started (Local Development)
+
+Want to run TESTIFY on your local machine? Follow these steps:
 
 ### Prerequisites
-- Node.js & npm
-- Python 3.9+
-- Firebase service account and project keys
-- Qdrant Vector DB instance (or local)
+- Node.js (v18+)
+- Python (3.9+)
+- Firebase Project (with Auth & Firestore enabled)
 - Groq API Key
+- Qdrant Setup (Docker or Cloud)
 
-### 1. Backend Setup
+### 1️⃣ Backend Setup
 ```bash
+# Navigate to the backend directory
 cd testify-backend
+
+# Create and activate a virtual environment
 python -m venv venv
+source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 
-# Windows
-.\venv\Scripts\activate
-# Mac/Linux
-source venv/bin/activate
-
+# Install dependencies
 pip install -r requirements.txt
 
-# Create a .env file based on environment variables
-# Run the application
+# Create your .env file and add your keys (Firebase credentials, Groq API, Qdrant URL, etc.)
+# Start the FastAPI server
 uvicorn main:app --reload --port 8000
 ```
 
-### 2. Frontend Setup
+### 2️⃣ Frontend Setup
 ```bash
+# Navigate to the frontend directory
 cd testify-frontend
+
+# Install node modules
 npm install
 
-# Create a .env file with Vite and Firebase config variables
-# Start the development server
+# Create your .env file with Vite & Firebase variables (VITE_API_BASE_URL=http://localhost:8000)
+# Start the Vite development server
 npm run dev
 ```
 
-Visit `http://localhost:5173` to explore TESTIFY locally!
+Visit `http://localhost:5173` to experience TESTIFY locally!
+
+---
+<div align="center">
+  <i>Built with ❤️ for intelligent learning.</i>
+</div>
