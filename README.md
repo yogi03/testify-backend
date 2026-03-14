@@ -12,39 +12,20 @@ TESTIFY is an intelligent, full-stack AI-driven educational platform designed to
 
 Here is a glimpse of the TESTIFY platform in action:
 
-<div align="center">
-  <img src="public/1.png" alt="Testify Screenshot 1" width="800" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="public/2.png" alt="Testify Screenshot 2" width="800" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="public/3.png" alt="Testify Screenshot 3" width="800" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="public/4.png" alt="Testify Screenshot 4" width="800" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="public/5.png" alt="Testify Screenshot 5" width="800" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="public/6.png" alt="Testify Screenshot 6" width="800" />
-</div>
+<table align="center">
+  <tr>
+    <td><img src="public/1.png" alt="Testify Screenshot 1" width="400" /></td>
+    <td><img src="public/2.png" alt="Testify Screenshot 2" width="400" /></td>
+  </tr>
+  <tr>
+    <td><img src="public/3.png" alt="Testify Screenshot 3" width="400" /></td>
+    <td><img src="public/4.png" alt="Testify Screenshot 4" width="400" /></td>
+  </tr>
+  <tr>
+    <td><img src="public/5.png" alt="Testify Screenshot 5" width="400" /></td>
+    <td><img src="public/6.png" alt="Testify Screenshot 6" width="400" /></td>
+  </tr>
+</table>
 
 ---
 
