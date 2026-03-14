@@ -27,11 +27,16 @@ try:
             "client_x509_cert_url": os.getenv("FIREBASE_CLIENT_CERT_ID"),
             "universe_domain": "googleapis.com"
         }
-        cred = credentials.Certificate(cred_path)
+        if os.path.exists(cred_path):
+            cred = credentials.Certificate(cred_path)
+        else:
+            print("serviceAccountKey.json not found. Using environment variables for Firebase.")
+            cred = credentials.Certificate(cred_dict)
+            
         firebase_admin.initialize_app(cred, {
             'storageBucket': os.getenv("FIREBASE_STORAGE_BUCKET", "testify-app.appspot.com")
         })
-    db = firestore.client()
+        db = firestore.client()
     bucket = storage.bucket()
 except Exception as e:
     print(f"Firebase not initialized. Ensure service account key exists: {e}")
