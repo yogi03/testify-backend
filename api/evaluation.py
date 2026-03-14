@@ -6,7 +6,7 @@ from datetime import datetime
 from database.firestore import get_db
 from services.topic_progress import calculate_attempt_topic_performance
 
-router = APIRouter(prefix="/api/evaluation", tags=["Evaluation"])
+router = APIRouter(prefix="/evaluation", tags=["Evaluation"])
 
 class EvaluationRequest(BaseModel):
     user_id: str

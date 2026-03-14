@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from database.firestore import get_db
 from services.topic_progress import summarize_document_topics
 
-router = APIRouter(prefix="/api/analytics", tags=["Analytics"])
+router = APIRouter(prefix="/analytics", tags=["Analytics"])
 
 
 @router.get("/{user_id}")

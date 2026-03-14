@@ -17,12 +17,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth.router)
-app.include_router(upload.router)
-app.include_router(test_generation.router)
-app.include_router(evaluation.router)
-app.include_router(analytics.router)
-app.include_router(deletion.router)
+app.include_router(auth.router, prefix="/auth")
+app.include_router(upload.router, prefix="/upload")
+app.include_router(test_generation.router, prefix="/test_generation")
+app.include_router(evaluation.router, prefix="/evaluation")
+app.include_router(analytics.router, prefix="/analytics")
+app.include_router(deletion.router, prefix="/deletion")
 
 @app.get("/")
 def read_root():

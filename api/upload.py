@@ -4,7 +4,7 @@ import uuid
 import shutil
 from database.firestore import get_db
 
-router = APIRouter(prefix="/api/upload", tags=["Upload"])
+router = APIRouter(prefix="/upload", tags=["Upload"])
 
 @router.post("/pdf")
 async def upload_pdf(file: UploadFile = File(...), user_id: str = Form(...)):

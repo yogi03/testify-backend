@@ -6,7 +6,7 @@ from datetime import datetime
 from database.firestore import get_db
 from services.topic_progress import build_topic_plan
 
-router = APIRouter(prefix="/api/tests", tags=["Tests"])
+router = APIRouter(prefix="/tests", tags=["Tests"])
 
 class TestRequest(BaseModel):
     user_id: str

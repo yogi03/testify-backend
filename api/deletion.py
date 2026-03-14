@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 from database.firestore import get_db
 from rag.vectorstore import delete_document_chunks
 
-router = APIRouter(prefix="/api", tags=["Deletion"])
+router = APIRouter(prefix="", tags=["Deletion"])
 
 @router.delete("/documents/{doc_id}")
 async def delete_document(doc_id: str, user_id: str = Query(...)):
