@@ -50,3 +50,42 @@ async def submit_test(req: EvaluationRequest):
     })
     
     return {"attempt_id": attempt_id, "results": {**results, "max_score": max_score, "score_percentage": score_percentage}}
+
+
+@router.get("/{attempt_id}")
+async def get_attempt(attempt_id: str):
+    db = get_db()
+    if not db:
+        raise HTTPException(status_code=500, detail="Database not connected")
+
+    attempt_doc = db.collection("attempts").document(attempt_id).get()
+    if not attempt_doc.exists:
+        raise HTTPException(status_code=404, detail="Attempt not found")
+
+    return attempt_doc.to_dict()
+
+
+class UpdateAttemptNotesRequest(BaseModel):
+    notes: str
+    notes_topics: list
+    notes_scope: str = "incorrect_only"
+
+
+@router.patch("/{attempt_id}/notes")
+async def update_attempt_notes(attempt_id: str, req: UpdateAttemptNotesRequest):
+    db = get_db()
+    if not db:
+        raise HTTPException(status_code=500, detail="Database not connected")
+
+    attempt_ref = db.collection("attempts").document(attempt_id)
+    attempt_doc = attempt_ref.get()
+    if not attempt_doc.exists:
+        raise HTTPException(status_code=404, detail="Attempt not found")
+
+    attempt_ref.update({
+        "notes": req.notes,
+        "notes_topics": req.notes_topics,
+        "notes_scope": req.notes_scope,
+    })
+
+    return {"status": "ok"}

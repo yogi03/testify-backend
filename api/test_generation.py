@@ -51,7 +51,6 @@ async def create_test(req: TestRequest):
         status_code = 429 if "rate limit" in detail.lower() else 500
         raise HTTPException(status_code=status_code, detail=detail)
 
-
 @router.get("/topics/{doc_id}")
 async def get_document_topics(doc_id: str):
     db = get_db()
@@ -68,6 +67,33 @@ async def get_document_topics(doc_id: str):
         "title": data.get("title"),
         "topic_outline": data.get("topic_outline", []),
     }
+
+
+@router.get("/mindmap-data/{mindmap_id}")
+async def get_mindmap_data(mindmap_id: str):
+    db = get_db()
+    if not db:
+        raise HTTPException(status_code=500, detail="Database not connected")
+
+    mindmap_doc = db.collection("mindmaps").document(mindmap_id).get()
+    if not mindmap_doc.exists:
+        raise HTTPException(status_code=404, detail="Mindmap not found")
+
+    return mindmap_doc.to_dict()
+
+
+@router.get("/{test_id}")
+async def get_test(test_id: str):
+    db = get_db()
+    if not db:
+        raise HTTPException(status_code=500, detail="Database not connected")
+
+    test_doc = db.collection("tests").document(test_id).get()
+    if not test_doc.exists:
+        raise HTTPException(status_code=404, detail="Test not found")
+
+    return test_doc.to_dict()
+
 
 @router.post("/notes")
 async def get_notes(req: TestRequest):
